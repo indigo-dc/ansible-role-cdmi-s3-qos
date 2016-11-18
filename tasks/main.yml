@@ -1,2 +1,29 @@
 ---
+- include: java8.yml
+  when: ansible_distribution == "Ubuntu"
+
 # tasks file for ansible-role-cdmi-s3-qos
+- name: First testing task from inisde of role
+  shell: echo "Hello from task"
+  register: out
+
+- name: Install RPM package
+  yum:
+    name: "{{ rpm_get_url }}"
+    state: present
+  notify:
+    - restart cdmi-s3-qos
+  when: ansible_pkg_mgr == "yum"
+  register: out
+
+- name: Install DEB package
+  apt:
+    deb: "{{ deb_get_url }}"
+    state: present
+  notify:
+    - restart cdmi-s3-qos
+  when: ansible_pkg_mgr == "apt"
+  register: out
+
+
+- debug: var=out.stdout_lines

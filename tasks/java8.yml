@@ -1,0 +1,13 @@
+- name: Add Java 8 Repository
+  apt_repository:
+    repo: ppa:openjdk-r/ppa
+    state: present
+  when: ansible_distribution == "Ubuntu"
+
+
+- name: Install Java 8
+  apt:
+    name: openjdk-8-jre
+    state: present
+    update_cache: yes
+  when: ansible_distribution == "Ubuntu"

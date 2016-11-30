@@ -25,5 +25,13 @@
   when: ansible_pkg_mgr == "apt"
   register: out
 
+- name: Apply default CDMI listening port
+  lineinfile: dest=/var/lib/cdmi-s3-qos/config/application.yml regexp='^  port:' line='  port{{ ":" }} {{ cdmi_port }}'
+  register: out
+
+- name: Apply default active profile
+  lineinfile: dest=/var/lib/cdmi-s3-qos/config/application.yml regexp='^    active:' line='    active{{ ":" }} {{ active_profile }}'
+  register: out
+
 
 - debug: var=out.stdout_lines

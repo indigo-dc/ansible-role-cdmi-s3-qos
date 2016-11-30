@@ -1,38 +1,28 @@
-Role Name
+CDMI S3 QoS Role
 =========
 
-A brief description of the role goes here.
-
-Requirements
-------------
-
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Installs and configure cdmi-s3-qos module together with embedded CDMI server.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+- `deb_get_url` (required in case of Ubuntu platform): URL to binary deb package with cdmi-s3-qos module and "embedded" CDMI server
+- `deb_rpm_url` (required in case of CentOS platform): URL to binary rpm package with cdmi-s3-qos module and "embedded" CDMI server
+- `cdmi_port` (default: 8888): TCP port to which CDMI server is to bind
+- `active_profile` (default: redis-embedded): possible values are "redis", "redis-embedded"
 
-Dependencies
-------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+This is an example playbook of how to use CDMI S3 QoS role:
 
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: indigo-dc.cdmi-s3-qos, cdmi_port: 8080, active_profile: "redis-embedded" }
 
 License
 -------
 
-Apache Licence v2 1
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Apache Licence v2

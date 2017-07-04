@@ -4,14 +4,14 @@
 #- shell: route -n | grep 'UG[ \t]' | awk '$1 == "0.0.0.0" { print $0 }' | awk '{print $2}'
 #  register: package_base_url
 
-deb_package_name: "cdmi-s3-qos-0.0.1-cdmi1.1.deb"
-rpm_package_name: "cdmi-s3-qos-0.0.1cdmi1.1-1.el7.centos.x86_64.rpm"
+deb_package_name: "cdmi-s3-qos-2.0.0.deb"
+rpm_package_name: "cdmi-s3-qos-2.0.0-1.el7.centos.x86_64.rpm"
 
 deb_get_url: "http://testing-source/{{ deb_package_name }}"
 rpm_get_url: "http://testing-source/{{ rpm_package_name }}"
 
-active_profile: redis-embedded
-cdmi_port: 8888
+#active_profile: redis-embedded
+#cdmi_port: 8888
 
-redis_host: localhost
-redis_port: 6379
+#redis_host: localhost
+#redis_port: 6379

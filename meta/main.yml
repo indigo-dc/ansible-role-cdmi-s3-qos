@@ -1,7 +1,7 @@
 galaxy_info:
   author: gracjan@man.poznan.pl
   owner: indigo-dc
-  description: Install cdmi-s3-qos modulre together with embedded CDMI server
+  description: Install cdmi-s3-qos module
   company: INDIGO-DataCloud
   license: Apache
   min_ansible_version: 2.1

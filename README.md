@@ -1,7 +1,7 @@
 CDMI S3 QoS Role
 =========
 
-Installs and configure cdmi-s3-qos module together with embedded CDMI server.
+Installs cdmi-s3-qos module for INDIGO developed CDMI server.
 
 Role Variables
 --------------
